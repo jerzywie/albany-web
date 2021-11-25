@@ -22,8 +22,8 @@
 (defn debug-app-state []
   (when ^boolean js/goog.DEBUG
     (let [state @app-state
-          data-part (take 20 (:data state))]
+          ]
       [:pre.tiny-words
        [:div.mb-3.d-print-none
         [:h5 "debug app state"]
-        [:div (with-out-str (pprint (assoc (dissoc state :data) :data-part data-part)))]]])))
+        [:div (with-out-str (pprint state))]]])))
