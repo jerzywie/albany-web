@@ -17,7 +17,6 @@
                    sheet-cols-acf (ss/sheet->map selected-sheet options)
                    sel-cols (ss/select-columns {:A :cola :E :col-e :D :d-col} selected-sheet)
                    ]
-               ;(prn "selected-sheet" selected-sheet)
                (println)
                (prn "!ref value is" (goog.object/get selected-sheet "!ref"))
                (println)

@@ -5,6 +5,7 @@
    [jerzywie.albany-web.albany-web-test]
    [jerzywie.albany-web.util-test]
    [jerzywie.albany-web.xls-async-test]
+   [jerzywie.albany-web.spreadsheet-tests]
 
    [cljs.test :as test]
    [figwheel.main.async-result :as async-result]
