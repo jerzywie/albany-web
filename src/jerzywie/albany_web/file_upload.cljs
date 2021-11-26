@@ -2,6 +2,7 @@
   (:require 
    [jerzywie.albany-web.state :as state]
    [jerzywie.albany-web.spreadsheet :as ss]
+   [jerzywie.albany-web.albany-spreadsheet :as as]
    [cljs.core.async :as async :refer [put! chan <!]])
   (:require-macros [cljs.core.async.macros :refer [go-loop]]))
 
@@ -17,6 +18,7 @@
             .-target
             .-result
             ss/raw-data->workbook
+            as/read-sheets
             )))
 
 (def upload-reqs (chan 1 first-file))
@@ -34,8 +36,8 @@
     (recur)))
 
 (go-loop []
-  (let [data (<! file-reads)]
-    (state/add-stuff! :data data)
+  (let [sheets (<! file-reads)]
+    (swap! state/app-state merge sheets)
     (recur)))
 
 (defn upload-btn [file-name]

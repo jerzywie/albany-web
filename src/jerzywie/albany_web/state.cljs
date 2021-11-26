@@ -26,4 +26,4 @@
       [:pre.tiny-words
        [:div.mb-3.d-print-none
         [:h5 "debug app state"]
-        [:div (with-out-str (pprint state))]]])))
+        [:div (with-out-str (pprint (assoc (dissoc state :co) :co-first-3 (take 3 (:co state)))))]]])))
